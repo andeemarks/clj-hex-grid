@@ -20,3 +20,12 @@
 (defn hex_corner 
 	[{center :center corner :corner size :size}]
 	(hex/calc_hex_corner center corner size 0))
+
+(defn hex_corners [attrs]
+	{0 (hex_corner (assoc attrs :corner 0))
+	 1 (hex_corner (assoc attrs :corner 1))	
+	 2 (hex_corner (assoc attrs :corner 2))	
+	 3 (hex_corner (assoc attrs :corner 3))	
+	 4 (hex_corner (assoc attrs :corner 4))	
+	 5 (hex_corner (assoc attrs :corner 5))	
+	 })

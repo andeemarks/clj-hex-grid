@@ -4,6 +4,17 @@
 
 (facts "for flat-topped hexen"
 
+	(facts "when generating all corners"
+		(fact "all corners are returned"
+			(let [corners (flat/hex_corners {:center {:x 1 :y 1}})
+						_ (println corners)]
+				(get corners 0) => truthy
+				(get corners 1) => truthy
+				(get corners 2) => truthy
+				(get corners 3) => truthy
+				(get corners 4) => truthy
+				(get corners 5) => truthy)))
+
 	(facts "when calculating corner coordinates"
 		(fact "default size is 1"
 			(flat/hex_corner {:center {:x 1 :y 1} :corner 1}) => (flat/hex_corner {:center {:x 1 :y 1} :size 1 :corner 1})
