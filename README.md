@@ -6,7 +6,7 @@ A Clojure library implementing the algorithms specified in http://www.redblobgam
 
 | Section | Status |
 | -- | -- |
-| Angles, size, spacing | In progress |
+| Angles, size, spacing | Done |
 | Coordinate systems | To do |
 | Conversions | To do |
 | Neighbors | To do |
