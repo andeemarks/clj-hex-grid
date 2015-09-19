@@ -1,4 +1,5 @@
 (ns clj-hex-grid.core)
 
-(defn width [attrs]
-	(* (get attrs :size) 2))
+(defn width 
+	([{size :size}] (* size 2))
+	([] 2))
