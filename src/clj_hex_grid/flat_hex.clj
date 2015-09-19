@@ -1,4 +1,4 @@
-(ns clj-hex-grid.core)
+(ns clj-hex-grid.flat-hex)
 
 (defn width 
 	([{size :size}] (* size 2))
