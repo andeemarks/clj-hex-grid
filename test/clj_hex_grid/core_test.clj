@@ -33,12 +33,12 @@
 
 (facts "for pointy-topped hexen"
 
-		; (facts "when calculating widths"
-		; 	(fact "default size is 1"
-		; 		(flat/width) => 2)
-		; 	(fact "width is twice the size"
-		; 		(flat/width {:size 1}) => 2
-		; 		(flat/width {:size 2}) => 4))
+		(facts "when calculating widths"
+			(fact "default size is 1"
+				(pointy/width) => (Math/sqrt 3))
+			(fact "width is the height multiplied by half the square root of 3"
+				(pointy/width {:size 1}) => (Math/sqrt 3)
+				(pointy/width {:size 2}) => (* 2 (Math/sqrt 3))))
 
 		(facts "when calculating heights"
 			(fact "default size is 1"
