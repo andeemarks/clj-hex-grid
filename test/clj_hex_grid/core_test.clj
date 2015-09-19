@@ -1,5 +1,8 @@
 (ns clj-hex-grid.core-test
+	(:require [clj-hex-grid.core :as hex])
   (:use [midje.sweet]))
 
-(fact (+ 2 2) => 4)
-(fact (+ 2 2) => even?)
+(facts "hex sizes and spacing"
+	(fact "width is twice the size"
+		(hex/width {:size 1}) => 2
+		(hex/width {:size 2}) => 4))
