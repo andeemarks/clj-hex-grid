@@ -48,13 +48,13 @@
 				(pointy/height {:size 2}) => 4))
 
 
-	; (facts "when calculating distances"
-	; 	(fact "horizontal-distance between adjacent hexes is 3/4 of width"
-	; 		(flat/horizontal-distance-to-adjacent) => (* 2 0.75)
-	; 		(flat/horizontal-distance-to-adjacent {:size 1}) => (* 2 0.75)))
+	(facts "when calculating distances"
+		(fact "horizontal-distance between adjacent hexes is same as width"
+			(pointy/horizontal-distance-to-adjacent) => (pointy/width)
+			(pointy/horizontal-distance-to-adjacent {:size 1}) => (pointy/width))
 
 		(fact "vertical-distance between adjacent hexes is 0.75 of the height"
 			(pointy/vertical-distance-to-adjacent {:size 2}) => 3.0
-			(pointy/vertical-distance-to-adjacent) => 1.5)
+			(pointy/vertical-distance-to-adjacent) => 1.5))
 		
 )

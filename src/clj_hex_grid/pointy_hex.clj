@@ -10,7 +10,7 @@
 
 (defn horizontal-distance-to-adjacent 
 	([]	(horizontal-distance-to-adjacent {:size 1}))
-	([attrs] (double (* 0.75 (width attrs)))))
+	([attrs] (double (width attrs))))
 
 (defn vertical-distance-to-adjacent 
 	([]	(vertical-distance-to-adjacent {:size 1}))
