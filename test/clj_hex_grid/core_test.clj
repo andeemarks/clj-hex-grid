@@ -1,7 +1,5 @@
 (ns clj-hex-grid.core-test
-  (:require [clojure.test :refer :all]
-            [clj-hex-grid.core :refer :all]))
+  (:use [midje.sweet]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(fact (+ 2 2) => 4)
+(fact (+ 2 2) => even?)
