@@ -1,5 +1,6 @@
 (ns clj-hex-grid.core-test
 	(:require [clj-hex-grid.flat-hex :as flat])
+	(:require [clj-hex-grid.pointy-hex :as pointy])
   (:use [midje.sweet]))
 
 (facts "for flat-topped hexen"
@@ -39,12 +40,12 @@
 		; 		(flat/width {:size 1}) => 2
 		; 		(flat/width {:size 2}) => 4))
 
-		; (facts "when calculating heights"
-		; 	(fact "default size is 1"
-		; 		(flat/height) => (Math/sqrt 3))
-		; 	(fact "height is the width multiplied by half the square root of 3"
-		; 		(flat/height {:size 1}) => (Math/sqrt 3)
-		; 		(flat/height {:size 2}) => (* 2 (Math/sqrt 3))))
+		(facts "when calculating heights"
+			(fact "default size is 1"
+				(pointy/height) => 2)
+			(fact "height is twice the size"
+				(pointy/height {:size 1}) => 2
+				(pointy/height {:size 2}) => 4))
 
 
 	; (facts "when calculating distances"
