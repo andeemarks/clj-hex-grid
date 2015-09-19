@@ -4,5 +4,6 @@
 	([{size :size}] (* size 2))
 	([] 2))
 
-(defn distance-to-adjacent []
-	(* (/ 3 4) (width)))
+(defn distance-to-adjacent 
+	([]	(double (* (/ 3 4) (width))))
+	([attrs] (double (* (/ 3 4) (width attrs)))))
