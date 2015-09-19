@@ -4,6 +4,17 @@
 
 (facts "for pointy-topped hexen"
 
+	(facts "when generating all corners"
+		(fact "all corners are returned"
+			(let [corners (pointy/hex_corners {:center {:x 1 :y 1}})
+						_ (println corners)]
+				(get corners 0) => truthy
+				(get corners 1) => truthy
+				(get corners 2) => truthy
+				(get corners 3) => truthy
+				(get corners 4) => truthy
+				(get corners 5) => truthy)))
+
 	(facts "when calculating corner coordinates"
 		(fact "default size is 1"
 			(pointy/hex_corner {:center {:x 1 :y 1} :corner 1}) => (pointy/hex_corner {:center {:x 1 :y 1} :size 1 :corner 1})
@@ -23,8 +34,8 @@
 		(fact "center must be specified"
 			(pointy/hex_corner {:corner 1}) => (throws Exception))
 		(fact "coordinates contain x and y"
-			(get (pointy/hex_corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2)
-			(get (pointy/hex_corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2)))
+			(get (pointy/hex_corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2 1)
+			(get (pointy/hex_corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2 1)))
 
 	(facts "when calculating widths"
 		(fact "default size is 1"

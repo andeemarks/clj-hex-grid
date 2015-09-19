@@ -34,8 +34,8 @@
 		(fact "center must be specified"
 			(flat/hex_corner {:corner 1}) => (throws Exception))
 		(fact "coordinates contain x and y"
-			(get (flat/hex_corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2)
-			(get (flat/hex_corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2)))
+			(get (flat/hex_corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2 1)
+			(get (flat/hex_corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2 1)))
 
 	(facts "when calculating widths"
 		(fact "default size is 1"
