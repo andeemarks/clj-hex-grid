@@ -1,10 +1,28 @@
 # clj-hex-grid
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library implementing the algorithms specified in http://www.redblobgames.com/grids/hexagons/.
 
-## Usage
+## Status
 
-FIXME
+| Section | Status |
+| -- | -- |
+| Angles, size, spacing | In progress |
+| Coordinate systems | To do |
+| Conversions | To do |
+| Neighbors | To do |
+| Distances | To do |
+| Line drawing | To do |
+| Range | To do |
+| Rotation | To do |
+| Rings | To do |
+| Field of view | To do |
+| Hex to pixel | To do |
+| Pixel to hex | To do |
+| Rounding | To do |
+| Map storage | To do |
+| Wraparound maps | To do |
+| Pathfinding | To do |
+| More reading | To do |
 
 ## License
 
