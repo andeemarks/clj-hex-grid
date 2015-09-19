@@ -53,8 +53,8 @@
 	; 		(flat/horizontal-distance-to-adjacent) => (* 2 0.75)
 	; 		(flat/horizontal-distance-to-adjacent {:size 1}) => (* 2 0.75)))
 
-	; 	(fact "vertical-distance between adjacent hexes is same as height"
-	; 		(flat/vertical-distance-to-adjacent {:size 2}) => (* 2 (flat/height))			
-	; 		(flat/vertical-distance-to-adjacent) => (flat/height))
+		(fact "vertical-distance between adjacent hexes is 0.75 of the height"
+			(pointy/vertical-distance-to-adjacent {:size 2}) => 3.0
+			(pointy/vertical-distance-to-adjacent) => 1.5)
 		
 )

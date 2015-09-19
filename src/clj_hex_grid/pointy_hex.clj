@@ -14,4 +14,4 @@
 
 (defn vertical-distance-to-adjacent 
 	([]	(vertical-distance-to-adjacent {:size 1}))
-	([attrs] (height attrs)))
+	([attrs] (* 0.75 (height attrs))))
