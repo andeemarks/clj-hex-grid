@@ -21,7 +21,10 @@
 			(pointy/hex_corner {:center {:x 1 :y 1} :corner 6}) => (throws Exception)
 			)
 		(fact "center must be specified"
-			(pointy/hex_corner {:corner 1}) => (throws Exception)))
+			(pointy/hex_corner {:corner 1}) => (throws Exception))
+		(fact "coordinates contain x and y"
+			(get (pointy/hex_corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2)
+			(get (pointy/hex_corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2)))
 
 	(facts "when calculating widths"
 		(fact "default size is 1"
