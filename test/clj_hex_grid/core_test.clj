@@ -20,7 +20,12 @@
 
 	(facts "about hex spacing"
 		(fact "horizontal-distance between adjacent hexes is 3/4 of width"
-			(hex/distance-to-adjacent) => (* 2 0.75)
-			(hex/distance-to-adjacent {:size 1}) => (* 2 0.75))
+			(hex/horizontal-distance-to-adjacent) => (* 2 0.75)
+			(hex/horizontal-distance-to-adjacent {:size 1}) => (* 2 0.75))
 		)
+
+		(fact "vertical-distance between adjacent hexes is same as height"
+			(hex/vertical-distance-to-adjacent {:size 2}) => (* 2 (hex/height))			
+			(hex/vertical-distance-to-adjacent) => (hex/height))
+		
 )
