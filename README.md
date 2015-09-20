@@ -4,25 +4,22 @@ A Clojure library implementing the algorithms specified in http://www.redblobgam
 
 ## Status
 
-| Section | Status |
-| -- | -- |
-| Angles, size, spacing | Done |
-| Coordinate systems | To do |
-| Conversions | To do |
-| Neighbors | To do |
-| Distances | To do |
-| Line drawing | To do |
-| Range | To do |
-| Rotation | To do |
-| Rings | To do |
-| Field of view | To do |
-| Hex to pixel | To do |
-| Pixel to hex | To do |
-| Rounding | To do |
-| Map storage | To do |
-| Wraparound maps | To do |
-| Pathfinding | To do |
-| More reading | To do |
+1. Angles, size, spacing - Done
+1. Coordinate systems - To do
+1. Conversions - To do
+1. Neighbors - To do
+1. Distances - To do
+1. Line drawing - To do
+1. Range - To do
+1. Rotation - To do
+1. Rings - To do
+1. Field of view - To do
+1. Hex to pixel - To do
+1. Pixel to hex - To do
+1. Rounding - To do
+1. Map storage - To do
+1. Wraparound maps - To do
+1. Pathfinding - To do
 
 ## License
 
