@@ -9,12 +9,12 @@
 		(fact "all corners are returned"
 			(let [corners (pointy/hex_corners {:center {:x 10 :y 10} :size 5})
 						_ (pp/pprint corners)]
-				(get corners 0) => truthy
-				(get corners 1) => truthy
-				(get corners 2) => truthy
-				(get corners 3) => truthy
-				(get corners 4) => truthy
-				(get corners 5) => truthy)))
+				(get-in corners [:corners 0]) => truthy
+				(get-in corners [:corners 1]) => truthy
+				(get-in corners [:corners 2]) => truthy
+				(get-in corners [:corners 3]) => truthy
+				(get-in corners [:corners 4]) => truthy
+				(get-in corners [:corners 5]) => truthy)))
 
 	(facts "when calculating corner coordinates"
 		(fact "default size is 1"
