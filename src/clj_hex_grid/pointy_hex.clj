@@ -21,7 +21,7 @@
 	[{center :center corner :corner size :size}]
 	(hex/calc_hex_corner center corner size 30))
 
-(defn hex_corners [attrs]
+(defn hex [attrs]
 	{	:type :pointy 
 		:center (get attrs :center)
 		:size (get attrs :size)

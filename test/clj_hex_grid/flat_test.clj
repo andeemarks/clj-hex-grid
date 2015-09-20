@@ -1,23 +1,21 @@
 (ns clj-hex-grid.flat-test
 	(:require [clj-hex-grid.flat-hex :as flat])
-	(:require [clojure.pprint :as pp])
   (:use [midje.sweet]))
 
 (facts "for flat-topped hexen"
 
-	(facts "when generating all corners"
+	(facts "when generating all flat_hex"
 		(fact "all attributes are returned"
-			(let [corners (flat/hex_corners {:center {:x 10 :y 10} :size 5})
-						_ (pp/pprint corners)]
-				(get corners :type) => :flat
-				(get corners :size) => 5
-				(get corners :center) => {:x 10 :y 10}
-				(get-in corners [:corners 0]) => truthy
-				(get-in corners [:corners 1]) => truthy
-				(get-in corners [:corners 2]) => truthy
-				(get-in corners [:corners 3]) => truthy
-				(get-in corners [:corners 4]) => truthy
-				(get-in corners [:corners 5]) => truthy)))
+			(let [flat_hex (flat/hex {:center {:x 10 :y 10} :size 5})]
+				(get flat_hex :type) => :flat
+				(get flat_hex :size) => 5
+				(get flat_hex :center) => {:x 10 :y 10}
+				(get-in flat_hex [:corners 0]) => truthy
+				(get-in flat_hex [:corners 1]) => truthy
+				(get-in flat_hex [:corners 2]) => truthy
+				(get-in flat_hex [:corners 3]) => truthy
+				(get-in flat_hex [:corners 4]) => truthy
+				(get-in flat_hex [:corners 5]) => truthy)))
 
 	(facts "when calculating corner coordinates"
 		(fact "default size is 1"

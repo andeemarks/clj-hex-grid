@@ -1,23 +1,21 @@
 (ns clj-hex-grid.pointy-test
 	(:require [clj-hex-grid.pointy-hex :as pointy])
-	(:require [clojure.pprint :as pp])
   (:use [midje.sweet]))
 
 (facts "for pointy-topped hexen"
 
-	(facts "when generating all corners"
-		(fact "all corners are returned"
-			(let [corners (pointy/hex_corners {:center {:x 10 :y 10} :size 5})
-						_ (pp/pprint corners)]
-				(get corners :type) => :pointy
-				(get corners :size) => 5
-				(get corners :center) => {:x 10 :y 10}
-				(get-in corners [:corners 0]) => truthy
-				(get-in corners [:corners 1]) => truthy
-				(get-in corners [:corners 2]) => truthy
-				(get-in corners [:corners 3]) => truthy
-				(get-in corners [:corners 4]) => truthy
-				(get-in corners [:corners 5]) => truthy)))
+	(facts "when generating all pointy_hex"
+		(fact "all pointy_hex are returned"
+			(let [pointy_hex (pointy/hex {:center {:x 10 :y 10} :size 5})]
+				(get pointy_hex :type) => :pointy
+				(get pointy_hex :size) => 5
+				(get pointy_hex :center) => {:x 10 :y 10}
+				(get-in pointy_hex [:corners 0]) => truthy
+				(get-in pointy_hex [:corners 1]) => truthy
+				(get-in pointy_hex [:corners 2]) => truthy
+				(get-in pointy_hex [:corners 3]) => truthy
+				(get-in pointy_hex [:corners 4]) => truthy
+				(get-in pointy_hex [:corners 5]) => truthy)))
 
 	(facts "when calculating corner coordinates"
 		(fact "default size is 1"
