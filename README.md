@@ -2,7 +2,11 @@
 
 A Clojure library implementing the algorithms specified in http://www.redblobgames.com/grids/hexagons/.
 
-## Status
+## Build Status
+
+[![Build Status](https://snap-ci.com/andeemarks/clj-hex-grid/branch/master/build_image)](https://snap-ci.com/andeemarks/clj-hex-grid/branch/master)
+
+## Features
 
 1. Angles, size, spacing - Done
 1. Coordinate systems - To do
