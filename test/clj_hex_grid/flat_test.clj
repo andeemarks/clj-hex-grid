@@ -6,9 +6,12 @@
 (facts "for flat-topped hexen"
 
 	(facts "when generating all corners"
-		(fact "all corners are returned"
+		(fact "all attributes are returned"
 			(let [corners (flat/hex_corners {:center {:x 10 :y 10} :size 5})
 						_ (pp/pprint corners)]
+				(get corners :type) => :flat
+				(get corners :size) => 5
+				(get corners :center) => {:x 10 :y 10}
 				(get-in corners [:corners 0]) => truthy
 				(get-in corners [:corners 1]) => truthy
 				(get-in corners [:corners 2]) => truthy
