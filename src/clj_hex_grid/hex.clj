@@ -14,7 +14,7 @@
 		(throw Exception))
 
 	(let [angle_deg (+ offset (* corner 60))
-				angle_rad (/ Math/PI (* 180 angle_deg))
+				angle_rad (* (/ Math/PI 180) angle_deg)
 				corner_x (calc_corner_x center size angle_rad)
 				corner_y (calc_corner_y center size angle_rad)]
 				{:x corner_x :y corner_y}))

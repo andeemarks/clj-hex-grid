@@ -1,13 +1,14 @@
 (ns clj-hex-grid.flat-test
 	(:require [clj-hex-grid.flat-hex :as flat])
+	(:require [clojure.pprint :as pp])
   (:use [midje.sweet]))
 
 (facts "for flat-topped hexen"
 
 	(facts "when generating all corners"
 		(fact "all corners are returned"
-			(let [corners (flat/hex_corners {:center {:x 1 :y 1}})
-						_ (println corners)]
+			(let [corners (flat/hex_corners {:center {:x 10 :y 10} :size 5})
+						_ (pp/pprint corners)]
 				(get corners 0) => truthy
 				(get corners 1) => truthy
 				(get corners 2) => truthy

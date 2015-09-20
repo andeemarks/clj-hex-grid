@@ -1,13 +1,14 @@
 (ns clj-hex-grid.pointy-test
 	(:require [clj-hex-grid.pointy-hex :as pointy])
+	(:require [clojure.pprint :as pp])
   (:use [midje.sweet]))
 
 (facts "for pointy-topped hexen"
 
 	(facts "when generating all corners"
 		(fact "all corners are returned"
-			(let [corners (pointy/hex_corners {:center {:x 1 :y 1}})
-						_ (println corners)]
+			(let [corners (pointy/hex_corners {:center {:x 10 :y 10} :size 5})
+						_ (pp/pprint corners)]
 				(get corners 0) => truthy
 				(get corners 1) => truthy
 				(get corners 2) => truthy
