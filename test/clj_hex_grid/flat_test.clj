@@ -4,7 +4,7 @@
 
 (facts "for flat-topped hexen"
 
-	(facts "when generating all flat_hex"
+	(facts "when building a flat hex"
 		(fact "all attributes are returned"
 			(let [flat_hex (flat/hex {:center {:x 10 :y 10} :size 5})]
 				(get flat_hex :type) => :flat

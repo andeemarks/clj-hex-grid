@@ -4,8 +4,8 @@
 
 (facts "for pointy-topped hexen"
 
-	(facts "when generating all pointy_hex"
-		(fact "all pointy_hex are returned"
+	(facts "when building a pointy hex"
+		(fact "all attributes are returned"
 			(let [pointy_hex (pointy/hex {:center {:x 10 :y 10} :size 5})]
 				(get pointy_hex :type) => :pointy
 				(get pointy_hex :size) => 5
