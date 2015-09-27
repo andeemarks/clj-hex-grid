@@ -8,7 +8,7 @@ A Clojure library implementing the algorithms specified in http://www.redblobgam
 
 1. Angles, size, spacing - Done
 1. Coordinate systems - To do
-1. Conversions - In progress
+1. Conversions - Done (offset to/from cube only, no axial)
 1. Neighbors - To do
 1. Distances - To do
 1. Line drawing - To do
