@@ -55,4 +55,12 @@
 		(fact "the y is assigned -x-z"
 			(coord/offset_even_r_to_cube {:row 3 :col 2}) => (contains {:y -3})))
 
+	(facts "from odd-r"
+		(fact "the x is assigned col - (row + (row&1)) / 2"
+			(coord/offset_odd-r_to_cube {:row 0 :col 2}) => (contains {:x 2}))
+		(fact "the z is assigned row"
+			(coord/offset_odd-r_to_cube {:row 0 :col 2}) => (contains {:z 0}))
+		(fact "the y is assigned -x-z"
+			(coord/offset_odd-r_to_cube {:row 0 :col 2}) => (contains {:y -2})))
+
 	)

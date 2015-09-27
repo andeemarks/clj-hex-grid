@@ -49,3 +49,13 @@
 				z row
 				y (- (- 0 x) z)]
 		{:x x :y y :z z}))
+
+(defn offset_odd-r_to_cube
+	"x => col - (row - (row&1)) / 2
+	z => row
+	y => -x-z"
+	[{row :row col :col}]
+	(let [x (- col (/ (- row (bit-and row 1)) 2))
+				z row
+				y (- (- 0 x) z)]
+		{:x x :y y :z z}))
