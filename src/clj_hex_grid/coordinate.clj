@@ -31,9 +31,21 @@
 		{:x x :y y :z z}))
 
 (defn offset_odd_q_to_cube
-	""
+	"x => col
+	z => row - (col - (col&1)) / 2
+	y => -x-z"
 	[{row :row col :col}]
 	(let [x col
 				z (- row (/ (- col (bit-and col 1)) 2))
+				y (- (- 0 x) z)]
+		{:x x :y y :z z}))
+
+(defn offset_even_r_to_cube
+	"x => col - (row + (row&1)) / 2
+	z => row
+	y => -x-z"
+	[{row :row col :col}]
+	(let [x (- col (/ (+ row (bit-and row 1)) 2))
+				z row
 				y (- (- 0 x) z)]
 		{:x x :y y :z z}))
