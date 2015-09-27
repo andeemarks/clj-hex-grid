@@ -27,6 +27,22 @@
 													:southwest {:x -1 :y 1}}
 										})
 
+(def even_q_neighbours {even_column 
+												{	:north {:x 0 :y -1} 
+													:south {:x 0 :y 1}
+													:northeast {:x 1 :y 0}
+													:northwest {:x -1 :y 0}
+													:southeast {:x 1 :y 1}
+													:southwest {:x -1 :y 1}}
+											odd_column 
+												{	:north {:x 0 :y -1} 	
+													:south {:x 0 :y 1}
+													:northeast {:x 1 :y -1}
+													:northwest {:x -1 :y -1}
+													:southeast {:x 1 :y 0}
+													:southwest {:x -1 :y 0}}
+										})
+
 (defn neighbour_for_cube
 	""
 	[{x :x y :y z :z} orientation]
@@ -41,6 +57,15 @@
 	[{x :x y :y} orientation]
 	(let [parity (bit-and x 1)
 				offsets (get (get odd_q_neighbours parity) orientation)]
+		; (println offsets)
+		{	:x (+ x (get offsets :x)) 
+			:y (+ y (get offsets :y))}))
+
+(defn neighbour_for_even_q
+	""
+	[{x :x y :y} orientation]
+	(let [parity (bit-and x 1)
+				offsets (get (get even_q_neighbours parity) orientation)]
 		; (println offsets)
 		{	:x (+ x (get offsets :x)) 
 			:y (+ y (get offsets :y))}))
