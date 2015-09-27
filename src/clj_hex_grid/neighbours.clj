@@ -8,12 +8,18 @@
 											:southwest {:x -1 :y 0 :z 1}
 										})
 
-(def odd_q_neighbours {:north {:x 0 :y -1} 
-											:south {:x 0 :y 1}
-											:northeast {:x 1 :y -1}
-											:northwest {:x -1 :y -1}
-											:southeast {:x 1 :y 0}
-											:southwest {:x -1 :y 0}
+(def odd_q_neighbours {0 {:north {:x 0 :y -1} 
+													:south {:x 0 :y 1}
+													:northeast {:x 1 :y -1}
+													:northwest {:x -1 :y -1}
+													:southeast {:x 1 :y 0}
+													:southwest {:x -1 :y 0}}
+											1 {:north {:x 0 :y -1} 	
+													:south {:x 0 :y 1}
+													:northeast {:x 1 :y -1}
+													:northwest {:x -1 :y 0}
+													:southeast {:x 1 :y 1}
+													:southwest {:x -1 :y 1}}
 										})
 
 (defn neighbour_for_cube
@@ -28,7 +34,8 @@
 (defn neighbour_for_odd_q
 	""
 	[{x :x y :y} orientation]
-	(let [offsets (get odd_q_neighbours orientation)]
+	(let [parity (bit-and x 1)
+				offsets (get (get odd_q_neighbours parity) orientation)]
 		; (println offsets)
 		{	:x (+ x (get offsets :x)) 
 			:y (+ y (get offsets :y))}))
