@@ -4,7 +4,9 @@
 
 (facts "when determining neighbours"
 	(facts "for flat hexen"
-		(fact "the northern neighbour is y + 1, z -1"
+		(fact "the northern neighbour is y + 1, z - 1"
 			(neighbours/neighbour_for {:x 0 :y 0 :z 0} :north) => {:x 0 :y 1 :z -1})
+		(fact "the southern neighbour is y - 1, z + 1"
+			(neighbours/neighbour_for {:x 0 :y 0 :z 0} :south) => {:x 0 :y -1 :z 1})
 		)
 	)
