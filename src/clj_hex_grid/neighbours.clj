@@ -8,13 +8,18 @@
 											:southwest {:x -1 :y 0 :z 1}
 										})
 
-(def odd_q_neighbours {0 {:north {:x 0 :y -1} 
+(def odd_column 1)
+(def even_column 0)
+
+(def odd_q_neighbours {even_column 
+												{	:north {:x 0 :y -1} 
 													:south {:x 0 :y 1}
 													:northeast {:x 1 :y -1}
 													:northwest {:x -1 :y -1}
 													:southeast {:x 1 :y 0}
 													:southwest {:x -1 :y 0}}
-											1 {:north {:x 0 :y -1} 	
+											odd_column 
+												{	:north {:x 0 :y -1} 	
 													:south {:x 0 :y 1}
 													:northeast {:x 1 :y -1}
 													:northwest {:x -1 :y 0}
