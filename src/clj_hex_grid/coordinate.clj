@@ -1,17 +1,17 @@
 (ns clj-hex-grid.coordinate)
 
 (defn cube_to_offset_odd_q 
-	"z + (x - (x&1)) / 2"
+	"row => z + (x - (x&1)) / 2"
 	[{x :x y :y z :z}]
 	{:col x :row (+ z (/ (- x (bit-and x 1)) 2))})
 
 (defn cube_to_offset_even_q 
-	"z + (x + (x&1)) / 2"
+	"row => z + (x + (x&1)) / 2"
 	[{x :x y :y z :z}]
 	{:col x :row (+ z (/ (+ x (bit-and x 1)) 2))})
 
 (defn cube_to_offset_even_r 
-	"x + (z + (z&1)) / 2"
+	"col => x + (z + (z&1)) / 2"
 	[{x :x y :y z :z}]
 	{:row z :col (+ x (/ (+ z (bit-and z 1)) 2))})
 
