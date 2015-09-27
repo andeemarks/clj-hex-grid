@@ -39,11 +39,13 @@
 		(fact "the y is assigned -x-z"
 			(coord/offset_even_q_to_cube {:row 1 :col 2}) => (contains {:y -2})))
 
-	(facts "to offset odd-q"
-		(fact "the offset row is assigned z + (x - (x&1)) / 2"
-			(coord/cube_to_offset_odd_q {:x 1 :y 2 :z 3}) => (contains {:row 3}))
-		(fact "the offset column is assigned the cube x"
-			(coord/cube_to_offset_odd_q {:x 1 :y 2 :z 3}) => (contains {:col 1})))
+	(facts "from odd-q"
+		(fact "the x is assigned the offset column"
+			(coord/offset_odd_q_to_cube {:row 2 :col 3}) => (contains {:x 3}))
+		(fact "the z is assigned row - (col - (col&1)) / 2"
+			(coord/offset_odd_q_to_cube {:row 2 :col 3}) => (contains {:z 1}))
+		(fact "the y is assigned -x-z"
+			(coord/offset_odd_q_to_cube {:row 2 :col 3}) => (contains {:y -4})))
 
 	(facts "to offset even-r"
 		(fact "the offset column is assigned x + (z + (z&1)) / 2"
