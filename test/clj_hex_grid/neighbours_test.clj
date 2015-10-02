@@ -60,12 +60,12 @@
 			(fact "the south western neighbour is x - 1, y + 1"
 				(neighbours/neighbour_for_odd_q {:x 1 :y 0} :southwest) => {:x 0 :y 1})
 			(fact "all neighbours are accessible"
-				(neighbours/neighbours_for_odd_q {:x 1 :y 0 :z 0}) => (contains '({:x 1 :y -1}
-																																				{:x 1 :y 1}
-																																				{:x 2 :y -1}
-																																				{:x 0 :y 0}
-																																				{:x 2 :y 1}
-																																				{:x 0 :y 1}) :in-any-order))
+				(neighbours/neighbours_for_odd_q {:x 1 :y 0}) => (contains '({:x 1 :y -1}
+																																		{:x 1 :y 1}
+																																		{:x 2 :y -1}
+																																		{:x 0 :y 0}
+																																		{:x 2 :y 1}
+																																		{:x 0 :y 1}) :in-any-order))
 			)
 		)
 	(facts "for even-q offset coordinates"
@@ -82,6 +82,13 @@
 				(neighbours/neighbour_for_even_q {:x 0 :y 0} :southeast) => {:x 1 :y 1})
 			(fact "the south western neighbour is x - 1, y + 1"
 				(neighbours/neighbour_for_even_q {:x 0 :y 0} :southwest) => {:x -1 :y 1})
+			(fact "all neighbours are accessible"
+				(neighbours/neighbours_for_even_q {:x 0 :y 0}) => (contains '({:x 0 :y -1}
+																																			{:x 0 :y 1}
+																																			{:x 1 :y 0}
+																																			{:x -1 :y 0}
+																																			{:x 1 :y 1}
+																																			{:x -1 :y 1}) :in-any-order))
 			)
 		(facts "when on an odd column"
 			(fact "the northern neighbour is y - 1"
@@ -96,6 +103,13 @@
 				(neighbours/neighbour_for_even_q {:x 1 :y 0} :southeast) => {:x 2 :y 0})
 			(fact "the south western neighbour is x - 1"
 				(neighbours/neighbour_for_even_q {:x 1 :y 0} :southwest) => {:x 0 :y 0})
+			(fact "all neighbours are accessible"
+				(neighbours/neighbours_for_even_q {:x 1 :y 0}) => (contains '({:x 1 :y -1}
+																																			{:x 1 :y 1}
+																																			{:x 2 :y -1}
+																																			{:x 0 :y -1}
+																																			{:x 2 :y 0}
+																																			{:x 0 :y 0}) :in-any-order))
 			)
 		)
 
