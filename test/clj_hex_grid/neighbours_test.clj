@@ -173,6 +173,13 @@
 				(neighbours/neighbour_for_even_r {:x 0 :y 0} :west) => {:x -1 :y 0})
 			(fact "the north western neighbour is y - 1"
 				(neighbours/neighbour_for_even_r {:x 0 :y 0} :northwest) => {:x 0 :y -1})
+			(fact "all neighbours are accessible"
+				(neighbours/neighbours_for_even_r {:x 0 :y 0}) => (contains '({:x 1 :y -1}
+																																			{:x 1 :y 0}
+																																			{:x 1 :y 1}
+																																			{:x 0 :y -1}
+																																			{:x -1 :y 0}
+																																			{:x 0 :y -1}) :in-any-order))
 			)
 		(facts "when on an odd row"
 			(fact "the north eastern neighbour is y - 1"
@@ -187,5 +194,12 @@
 				(neighbours/neighbour_for_even_r {:x 0 :y 1} :west) => {:x -1 :y 1})
 			(fact "the north western neighbour is x - 1"
 				(neighbours/neighbour_for_even_r {:x 0 :y 1} :northwest) => {:x -1 :y 0})
+			(fact "all neighbours are accessible"
+				(neighbours/neighbours_for_even_r {:x 0 :y 1}) => (contains '({:x 0 :y 0}
+																																			{:x 1 :y 1}
+																																			{:x 0 :y 2}
+																																			{:x -1 :y 2}
+																																			{:x -1 :y 1}
+																																			{:x -1 :y 0}) :in-any-order))
 			)
 		)

@@ -142,3 +142,8 @@
 		; (println offsets)
 		{	:x (+ x (get offsets :x)) 
 			:y (+ y (get offsets :y))}))
+
+(defn neighbours_for_even_r
+	""
+	[origin]
+	(map #(neighbour_for_even_r origin %1) pointy_neighbour_orientations))
