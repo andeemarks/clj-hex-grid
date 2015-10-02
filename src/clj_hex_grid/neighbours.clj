@@ -1,6 +1,7 @@
 (ns clj-hex-grid.neighbours)
 
 (def flat_neighbour_orientations [:north :south :northeast :northwest :southeast :southwest])
+(def pointy_neighbour_orientations [:west :east :northeast :northwest :southeast :southwest])
 
 (def cube_neighbours {:north {:x 0 :y 1 :z -1} 
 											:south {:x 0 :y -1 :z 1}
@@ -127,6 +128,11 @@
 		; (println offsets)
 		{	:x (+ x (get offsets :x)) 
 			:y (+ y (get offsets :y))}))
+
+(defn neighbours_for_odd_r
+	""
+	[origin]
+	(map #(neighbour_for_odd_r origin %1) pointy_neighbour_orientations))
 
 (defn neighbour_for_even_r
 	""
