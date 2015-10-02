@@ -89,7 +89,6 @@
 	""
 	[origin orientation]
 	(let [offsets (get cube_neighbours orientation)]
-		; (println offsets)
 		(offset_cube_coordinates_from_origin origin offsets)))
 
 (defn neighbours_for_cube
