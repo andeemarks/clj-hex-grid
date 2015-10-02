@@ -78,28 +78,37 @@
 													:northwest {:x -1 :y -1}}
 										})
 
+(defn- offset_cube_coordinates_from_origin
+	""
+	[{origin_x :x origin_y :y origin_z :z} offsets]
+	{	:x (+ origin_x (get offsets :x)) 
+		:y (+ origin_y (get offsets :y)) 
+		:z (+ origin_z (get offsets :z))})
+
 (defn neighbour_for_cube
 	""
-	[{x :x y :y z :z} orientation]
+	[origin orientation]
 	(let [offsets (get cube_neighbours orientation)]
 		; (println offsets)
-		{	:x (+ x (get offsets :x)) 
-			:y (+ y (get offsets :y)) 
-			:z (+ z (get offsets :z))}))
+		(offset_cube_coordinates_from_origin origin offsets)))
 
 (defn neighbours_for_cube
 	""
 	[origin]
 	(map #(neighbour_for_cube origin %1) flat_neighbour_orientations))
 
+(defn- offset_offset_coordinates_from_origin
+	""
+	[{origin_x :x origin_y :y} offsets]
+	{	:x (+ origin_x (get offsets :x)) 
+		:y (+ origin_y (get offsets :y))})
+
 (defn neighbour_for_odd_q
 	""
-	[{x :x y :y} orientation]
-	(let [parity (bit-and x 1)
+	[origin orientation]
+	(let [parity (bit-and (get origin :x) 1)
 				offsets (get (get odd_q_neighbours parity) orientation)]
-		; (println offsets)
-		{	:x (+ x (get offsets :x)) 
-			:y (+ y (get offsets :y))}))
+		(offset_offset_coordinates_from_origin origin offsets)))
 
 (defn neighbours_for_odd_q
 	""
@@ -108,12 +117,10 @@
 
 (defn neighbour_for_even_q
 	""
-	[{x :x y :y} orientation]
-	(let [parity (bit-and x 1)
+	[origin orientation]
+	(let [parity (bit-and (get origin :x) 1)
 				offsets (get (get even_q_neighbours parity) orientation)]
-		; (println offsets)
-		{	:x (+ x (get offsets :x)) 
-			:y (+ y (get offsets :y))}))
+		(offset_offset_coordinates_from_origin origin offsets)))
 
 (defn neighbours_for_even_q
 	""
@@ -122,12 +129,10 @@
 
 (defn neighbour_for_odd_r
 	""
-	[{x :x y :y} orientation]
-	(let [parity (bit-and y 1)
+	[origin orientation]
+	(let [parity (bit-and (get origin :y) 1)
 				offsets (get (get odd_r_neighbours parity) orientation)]
-		; (println offsets)
-		{	:x (+ x (get offsets :x)) 
-			:y (+ y (get offsets :y))}))
+		(offset_offset_coordinates_from_origin origin offsets)))
 
 (defn neighbours_for_odd_r
 	""
@@ -136,12 +141,10 @@
 
 (defn neighbour_for_even_r
 	""
-	[{x :x y :y} orientation]
-	(let [parity (bit-and y 1)
+	[origin orientation]
+	(let [parity (bit-and (get origin :y) 1)
 				offsets (get (get even_r_neighbours parity) orientation)]
-		; (println offsets)
-		{	:x (+ x (get offsets :x)) 
-			:y (+ y (get offsets :y))}))
+		(offset_offset_coordinates_from_origin origin offsets)))
 
 (defn neighbours_for_even_r
 	""
