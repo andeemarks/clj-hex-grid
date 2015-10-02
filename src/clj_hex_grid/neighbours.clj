@@ -100,6 +100,11 @@
 		{	:x (+ x (get offsets :x)) 
 			:y (+ y (get offsets :y))}))
 
+(defn neighbours_for_odd_q
+	""
+	[origin]
+	(map #(neighbour_for_odd_q origin %1) flat_neighbour_orientations))
+
 (defn neighbour_for_even_q
 	""
 	[{x :x y :y} orientation]
