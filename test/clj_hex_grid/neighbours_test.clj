@@ -16,6 +16,13 @@
 			(neighbours/neighbour_for_cube {:x 0 :y 0 :z 0} :southeast) => {:x 1 :y -1 :z 0})
 		(fact "the south western neighbour is z + 1, x - 1"
 			(neighbours/neighbour_for_cube {:x 0 :y 0 :z 0} :southwest) => {:x -1 :y 0 :z 1})
+		(fact "all neighbours are accessible"
+			(neighbours/neighbours_for_cube {:x 0 :y 0 :z 0}) => '({:x 0 :y 1 :z -1}
+																														{:x 0 :y -1 :z 1}
+																														{:x 1 :y 0 :z -1}
+																														{:x -1 :y 1 :z 0}
+																														{:x 1 :y -1 :z 0}
+																														{:x -1 :y 0 :z 1}))
 		)
 	(facts "for odd-q offset coordinates"
 		(facts "when on an even column"
