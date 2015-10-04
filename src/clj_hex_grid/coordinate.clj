@@ -27,7 +27,9 @@
 	[{row :row col :col}]
 	(let [x col
 				z (- row (/ (+ col (bit-and col 1)) 2))
-				y (- (- 0 x) z)]
+				y (- (- 0 x) z)
+				_ (println "Turning", row, col, "into", x, y, z)
+				]
 		{:x x :y y :z z}))
 
 (defn offset_odd_q_to_cube
@@ -50,7 +52,7 @@
 				y (- (- 0 x) z)]
 		{:x x :y y :z z}))
 
-(defn offset_odd-r_to_cube
+(defn offset_odd_r_to_cube
 	"x => col - (row - (row&1)) / 2
 	z => row
 	y => -x-z"
