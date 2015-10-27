@@ -28,7 +28,7 @@
 	(let [x col
 				z (- row (/ (+ col (bit-and col 1)) 2))
 				y (- (- 0 x) z)
-				_ (println "Turning", row, col, "into", x, y, z)
+				_ (println "Turning (row, col)", row, col, "into (x, y, z)", x, y, z)
 				]
 		{:x x :y y :z z}))
 
