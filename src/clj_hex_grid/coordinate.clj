@@ -28,7 +28,7 @@
 	(let [x col
 				z (- row (/ (+ col (bit-and col 1)) 2))
 				y (- (- 0 x) z)
-				_ (println "Turning (row, col)", row, col, "into (x, y, z)", x, y, z)
+				; _ (println "Turning (row, col)", row, col, "into (x, y, z)", x, y, z)
 				]
 		{:x x :y y :z z}))
 
@@ -49,7 +49,9 @@
 	[{row :row col :col}]
 	(let [x (- col (/ (+ row (bit-and row 1)) 2))
 				z row
-				y (- (- 0 x) z)]
+				y (- (- 0 x) z)
+				; _ (println "Turning (row, col)", row, col, "into (x, y, z)", x, y, z)
+				]
 		{:x x :y y :z z}))
 
 (defn offset_odd_r_to_cube
@@ -59,5 +61,7 @@
 	[{row :row col :col}]
 	(let [x (- col (/ (- row (bit-and row 1)) 2))
 				z row
-				y (- (- 0 x) z)]
+				y (- (- 0 x) z)
+				; _ (println "Turning (row, col)", row, col, "into (x, y, z)", x, y, z)
+				]
 		{:x x :y y :z z}))
