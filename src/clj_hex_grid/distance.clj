@@ -13,7 +13,7 @@
 	"var ac = offset_to_cube(a)
     var bc = offset_to_cube(b)
     return cube_distance(ac, bc)"
-	[{origin_row :x origin_col :y} {dest_row :x dest_col :y}]
+	[{origin_col :x origin_row :y} {dest_col :x dest_row :y}]
 	(let [origin_cube (c/offset_even_q_to_cube {:row origin_row :col origin_col})
 				dest_cube (c/offset_even_q_to_cube {:row dest_row :col dest_col})
 				; _ (println origin_cube dest_cube)
@@ -24,7 +24,7 @@
 	"var ac = offset_to_cube(a)
     var bc = offset_to_cube(b)
     return cube_distance(ac, bc)"
-	[{origin_row :x origin_col :y} {dest_row :x dest_col :y}]
+	[{origin_col :x origin_row :y} {dest_col :x dest_row :y}]
 	(let [origin_cube (c/offset_odd_q_to_cube {:row origin_row :col origin_col})
 				dest_cube (c/offset_odd_q_to_cube {:row dest_row :col dest_col})
 				; _ (println origin_cube dest_cube)
@@ -35,7 +35,7 @@
 	"var ac = offset_to_cube(a)
     var bc = offset_to_cube(b)
     return cube_distance(ac, bc)"
-	[{origin_row :x origin_col :y} {dest_row :x dest_col :y}]
+	[{origin_col :x origin_row :y} {dest_col :x dest_row :y}]
 	(let [origin_cube (c/offset_even_r_to_cube {:row origin_row :col origin_col})
 				dest_cube (c/offset_even_r_to_cube {:row dest_row :col dest_col})
 				]
@@ -45,7 +45,7 @@
 	"var ac = offset_to_cube(a)
     var bc = offset_to_cube(b)
     return cube_distance(ac, bc)"
-	[{origin_row :x origin_col :y} {dest_row :x dest_col :y}]
+	[{origin_col :x origin_row :y} {dest_col :x dest_row :y}]
 	(let [origin_cube (c/offset_odd_r_to_cube {:row origin_row :col origin_col})
 				dest_cube (c/offset_odd_r_to_cube {:row dest_row :col dest_col})
 				]
