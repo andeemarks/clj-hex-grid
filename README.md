@@ -11,7 +11,7 @@ A Clojure library implementing the algorithms specified in http://www.redblobgam
 1. Conversions - Done (offset to/from cube only, no axial)
 1. Neighbours - Done (cube and offset, no axials, no diagonals)
 1. Distances - Done (cube and offset coordinates)
-1. Line drawing - In progress
+1. Line drawing - Done (cube coordinates)
 1. Range - To do
 1. Rotation - To do
 1. Rings - To do
