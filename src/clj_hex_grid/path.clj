@@ -68,17 +68,24 @@
 	(let [x (+ (:x origin) (* scale_factor (- (:x dest) (:x origin))))
 		  y (+ (:y origin) (* scale_factor (- (:y dest) (:y origin))))
 		  z (+ (:z origin) (* scale_factor (- (:z dest) (:z origin))))
-		  lerp (cube_round {:x x :y y :z z})]
-		  lerp))
+		  rounded_lerp (cube_round {:x x :y y :z z})
+		  ; _ (pp/pprint (str "scale_factor" scale_factor "->" rounded_lerp))
+		  ]
+		  rounded_lerp))
 
 (defn- scale_factor
 	[max_samples current_sample_index]
 	(* (/ 1.0 max_samples) current_sample_index))
 
 (defn path_between
+	"var N = cube_distance(a, b)
+    var results = []
+    for each 0 ≤ i ≤ N:
+        results.append(cube_round(cube_lerp(a, b, 1.0/N * i)))
+    return results"
 	[origin dest]
-	(let [number_of_samples (+ 1 (d/cube_between origin dest))
+	(let [number_of_samples (d/cube_between origin dest)
 		  sample_range (range 0 (+ 1 number_of_samples))
-		  path (distinct (into [] (map #(cube_lerp origin dest (scale_factor number_of_samples %1)) sample_range)))
-		  _ (pp/pprint (str "path" path))]
+		  ; _ (pp/pprint (str "origin" origin "dest" dest))
+		  path (distinct (into [] (map #(cube_lerp origin dest (scale_factor number_of_samples %1)) sample_range)))]
 		path))
