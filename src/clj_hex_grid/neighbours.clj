@@ -78,7 +78,7 @@
 													:northwest {:x -1 :y -1}}
 										})
 
-(defn- offset_cube_coordinates_from_origin
+(defn offset_cube_coordinates_from_origin
 	""
 	[{origin_x :x origin_y :y origin_z :z} offsets]
 	{	:x (+ origin_x (get offsets :x)) 
