@@ -1,26 +1,26 @@
 (ns clj-hex-grid.coordinate)
 
-(defn cube_to_offset_odd_q
+(defn cube->offset-odd-q
   "row => z + (x - (x&1)) / 2"
   [{x :x _ :y z :z}]
   {:col x :row (+ z (/ (- x (bit-and x 1)) 2))})
 
-(defn cube_to_offset_even_q
+(defn cube->offset-even-q
   "row => z + (x + (x&1)) / 2"
   [{x :x _ :y z :z}]
   {:col x :row (+ z (/ (+ x (bit-and x 1)) 2))})
 
-(defn cube_to_offset_even_r
+(defn cube->offset-even-r
   "col => x + (z + (z&1)) / 2"
   [{x :x _ :y z :z}]
   {:row z :col (+ x (/ (+ z (bit-and z 1)) 2))})
 
-(defn cube_to_offset_odd_r
+(defn cube->offset-odd-r
   "col => x + (z - (z&1)) / 2"
   [{x :x _ :y z :z}]
   {:row z :col (+ x (/ (- z (bit-and z 1)) 2))})
 
-(defn offset_even_q_to_cube
+(defn offset-even-q->cube
   "z => row - (col + (col&1)) / 2
    y => -x-z
    x => col"
@@ -30,7 +30,7 @@
         y (- (- 0 x) z)]
     {:x x :y y :z z}))
 
-(defn offset_odd_q_to_cube
+(defn offset-odd-q->cube
   "x => col
    z => row - (col - (col&1)) / 2
    y => -x-z"
@@ -40,7 +40,7 @@
         y (- (- 0 x) z)]
     {:x x :y y :z z}))
 
-(defn offset_even_r_to_cube
+(defn offset-even-r->cube
   "x => col - (row + (row&1)) / 2
    z => row
    y => -x-z"
@@ -50,7 +50,7 @@
         y (- (- 0 x) z)]
     {:x x :y y :z z}))
 
-(defn offset_odd_r_to_cube
+(defn offset-odd-r->cube
   "x => col - (row - (row&1)) / 2
    z => row
    y => -x-z"

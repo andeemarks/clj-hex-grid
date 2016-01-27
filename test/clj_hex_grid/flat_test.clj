@@ -19,24 +19,24 @@
 
        (facts "when calculating corner coordinates"
               (fact "default size is 1"
-                    (flat/hex_corner {:center {:x 1 :y 1} :corner 1}) => (flat/hex_corner {:center {:x 1 :y 1} :size 1 :corner 1})
-                    (flat/hex_corner {:center {:x 1 :y 1} :corner 1}) =not=> (flat/hex_corner {:center {:x 1 :y 1} :size 2 :corner 1}))
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner 1}) => (flat/hex-corner {:center {:x 1 :y 1} :size 1 :corner 1})
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner 1}) =not=> (flat/hex-corner {:center {:x 1 :y 1} :size 2 :corner 1}))
               (fact "corner must be specified"
-                    (flat/hex_corner {:center {:x 1 :y 1}}) => (throws Exception))
+                    (flat/hex-corner {:center {:x 1 :y 1}}) => (throws Exception))
               (fact "corner must be in valid range"
-                    (flat/hex_corner {:center {:x 1 :y 1} :corner -1}) => (throws Exception)
-                    (flat/hex_corner {:center {:x 1 :y 1} :corner 0}) => truthy
-                    (flat/hex_corner {:center {:x 1 :y 1} :corner 1}) => truthy
-                    (flat/hex_corner {:center {:x 1 :y 1} :corner 2}) => truthy
-                    (flat/hex_corner {:center {:x 1 :y 1} :corner 3}) => truthy
-                    (flat/hex_corner {:center {:x 1 :y 1} :corner 4}) => truthy
-                    (flat/hex_corner {:center {:x 1 :y 1} :corner 5}) => truthy
-                    (flat/hex_corner {:center {:x 1 :y 1} :corner 6}) => (throws Exception))
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner -1}) => (throws Exception)
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner 0}) => truthy
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner 1}) => truthy
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner 2}) => truthy
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner 3}) => truthy
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner 4}) => truthy
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner 5}) => truthy
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner 6}) => (throws Exception))
               (fact "center must be specified"
-                    (flat/hex_corner {:corner 1}) => (throws Exception))
+                    (flat/hex-corner {:corner 1}) => (throws Exception))
               (fact "coordinates contain x and y"
-                    (get (flat/hex_corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2 1)
-                    (get (flat/hex_corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2 1)))
+                    (get (flat/hex-corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2 1)
+                    (get (flat/hex-corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2 1)))
 
        (facts "when calculating widths"
               (fact "default size is 1"

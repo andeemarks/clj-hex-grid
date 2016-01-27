@@ -18,26 +18,26 @@
 
        (facts "when calculating corner coordinates"
               (fact "default size is 1"
-                    (pointy/hex_corner {:center {:x 1 :y 1} :corner 1})
-                    => (pointy/hex_corner {:center {:x 1 :y 1} :size 1 :corner 1})
-                    (pointy/hex_corner {:center {:x 1 :y 1} :corner 1})
-                    =not=> (pointy/hex_corner {:center {:x 1 :y 1} :size 2 :corner 1}))
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 1})
+                    => (pointy/hex-corner {:center {:x 1 :y 1} :size 1 :corner 1})
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 1})
+                    =not=> (pointy/hex-corner {:center {:x 1 :y 1} :size 2 :corner 1}))
               (fact "corner must be specified"
-                    (pointy/hex_corner {:center {:x 1 :y 1}}) => (throws Exception))
+                    (pointy/hex-corner {:center {:x 1 :y 1}}) => (throws Exception))
               (fact "corner must be in valid range"
-                    (pointy/hex_corner {:center {:x 1 :y 1} :corner -1}) => (throws Exception)
-                    (pointy/hex_corner {:center {:x 1 :y 1} :corner 0}) => truthy
-                    (pointy/hex_corner {:center {:x 1 :y 1} :corner 1}) => truthy
-                    (pointy/hex_corner {:center {:x 1 :y 1} :corner 2}) => truthy
-                    (pointy/hex_corner {:center {:x 1 :y 1} :corner 3}) => truthy
-                    (pointy/hex_corner {:center {:x 1 :y 1} :corner 4}) => truthy
-                    (pointy/hex_corner {:center {:x 1 :y 1} :corner 5}) => truthy
-                    (pointy/hex_corner {:center {:x 1 :y 1} :corner 6}) => (throws Exception))
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner -1}) => (throws Exception)
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 0}) => truthy
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 1}) => truthy
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 2}) => truthy
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 3}) => truthy
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 4}) => truthy
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 5}) => truthy
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 6}) => (throws Exception))
               (fact "center must be specified"
-                    (pointy/hex_corner {:corner 1}) => (throws Exception))
+                    (pointy/hex-corner {:corner 1}) => (throws Exception))
               (fact "coordinates contain x and y"
-                    (get (pointy/hex_corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2 1)
-                    (get (pointy/hex_corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2 1)))
+                    (get (pointy/hex-corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2 1)
+                    (get (pointy/hex-corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2 1)))
 
        (facts "when calculating widths"
               (fact "default size is 1"

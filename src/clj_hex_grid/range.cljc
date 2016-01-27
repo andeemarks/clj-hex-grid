@@ -24,7 +24,7 @@
   [distance]
   (range (- distance) (+ 1 distance)))
 
-(defn range_from
+(defn range-from
   "var results = []
    for each -N ≤ dx ≤ N:
      for each max(-N, -dx-N) ≤ dy ≤ min(N, -dx+N):

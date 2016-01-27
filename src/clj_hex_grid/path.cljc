@@ -63,14 +63,14 @@
   [max_samples current_sample_index]
   (* (/ 1.0 max_samples) current_sample_index))
 
-(defn path_between
+(defn between
   "var N = cube_distance(a, b)
     var results = []
     for each 0 ≤ i ≤ N:
         results.append(cube_round(cube_lerp(a, b, 1.0/N * i)))
     return results"
   [origin dest]
-  (let [number_of_samples (d/cube_between origin dest)
+  (let [number_of_samples (d/cube-between origin dest)
         sample_range (range 0 (+ 1 number_of_samples))
         path (distinct (into [] (map #(cube_lerp origin dest (scale_factor number_of_samples %1))
                                      sample_range)))]
