@@ -1,6 +1,4 @@
 (ns clj-hex-grid.range
-  (require [clj-hex-grid.coordinate :as c])
-  (require [clj-hex-grid.distance :as d])
   (require [clj-hex-grid.neighbours :as n]))
 
 (defn- map_over_y

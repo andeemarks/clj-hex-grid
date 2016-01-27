@@ -1,7 +1,6 @@
 (ns clj-hex-grid.distance-test
   (:require [clj-hex-grid.distance :as distance])
   (:require [clj-hex-grid.neighbours :as n])
-  (:require [clojure.pprint :as pp])
   (:use [midje.sweet]))
 
 (def cube_origin {:x 0 :y 0 :z 0})

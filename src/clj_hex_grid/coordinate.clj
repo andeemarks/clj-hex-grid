@@ -2,22 +2,22 @@
 
 (defn cube_to_offset_odd_q
   "row => z + (x - (x&1)) / 2"
-  [{x :x y :y z :z}]
+  [{x :x _ :y z :z}]
   {:col x :row (+ z (/ (- x (bit-and x 1)) 2))})
 
 (defn cube_to_offset_even_q
   "row => z + (x + (x&1)) / 2"
-  [{x :x y :y z :z}]
+  [{x :x _ :y z :z}]
   {:col x :row (+ z (/ (+ x (bit-and x 1)) 2))})
 
 (defn cube_to_offset_even_r
   "col => x + (z + (z&1)) / 2"
-  [{x :x y :y z :z}]
+  [{x :x _ :y z :z}]
   {:row z :col (+ x (/ (+ z (bit-and z 1)) 2))})
 
 (defn cube_to_offset_odd_r
   "col => x + (z - (z&1)) / 2"
-  [{x :x y :y z :z}]
+  [{x :x _ :y z :z}]
   {:row z :col (+ x (/ (- z (bit-and z 1)) 2))})
 
 (defn offset_even_q_to_cube

@@ -1,7 +1,5 @@
 (ns clj-hex-grid.path
-  (require [clj-hex-grid.coordinate :as c])
-  (require [clj-hex-grid.distance :as d])
-  (require [clojure.pprint :as pp]))
+  (require [clj-hex-grid.distance :as d]))
 
 (defn- x_diff_is_largest?
   [diff_x diff_y diff_z]
