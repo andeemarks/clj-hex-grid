@@ -7,3 +7,4 @@
 (def path p/between)
 (def neighbour n/cube-neighbour)
 (def neighbours n/cube-neighbours)
+(def find-path p/cube-find-path)

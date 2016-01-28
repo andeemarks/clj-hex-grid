@@ -1,5 +1,7 @@
 (ns clj-hex-grid.path
-  (require [clj-hex-grid.distance :as d]))
+  (require [clojure.data.priority-map :refer :all]
+           [clj-hex-grid.distance :as d]
+           [clj-hex-grid.neighbours :as n]))
 
 (defn- x_diff_is_largest?
   [diff_x diff_y diff_z]
@@ -75,3 +77,32 @@
         path (distinct (into [] (map #(cube_lerp origin dest (scale_factor number_of_samples %1))
                                      sample_range)))]
     path))
+
+(defn find-path
+  "A* search from start to end."
+  [start end cost-fn neighbours-fn heuristic]
+  (loop [routes {}
+         frontier (priority-map start 0)]
+    (if (empty? frontier)
+      (get routes end)
+      (let [[node _] (first frontier)
+            frontier-rest (dissoc frontier node)
+            neighbours (neighbours-fn node)
+            cheapest-neighbour (first (sort-by :cost (keep #(get routes %) neighbours)))
+            oldcost (:cost (get routes node))
+            newcost (+ (cost-fn node) (or (:cost cheapest-neighbour) 0))]
+        (if (and oldcost (>= newcost oldcost))
+          (recur routes frontier-rest)
+          (recur (assoc routes node {:cost  newcost
+                                     :nodes (conj (:nodes cheapest-neighbour []) node)})
+                 (reduce #(assoc %1 %2 (+ newcost (heuristic %2))) frontier-rest neighbours)))))))
+
+(defn cube-find-path
+  "A* search asuming cube coordinates. A board is a map of nodes to costs."
+  ([start end board]
+    (cube-find-path start end #(get board %) #(contains? board %)))
+  ([start end cost-fn in-bounds?]
+   (find-path start end
+              cost-fn
+              #(filter in-bounds? (n/cube-neighbours %))
+              (partial d/cube-between end))))

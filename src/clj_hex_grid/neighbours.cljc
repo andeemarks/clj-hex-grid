@@ -136,3 +136,6 @@
   ""
   [origin]
   (map #(even-r-neighbour origin %1) pointy_neighbour_orientations))
+
+(defn cube-neighbour? [node neighbour]
+  (some #{neighbour} (cube-neighbours node)))

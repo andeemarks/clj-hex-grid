@@ -6,4 +6,5 @@
   :profiles {:dev {:dependencies [[midje "1.7.0"]
                                   [compojure "1.4.0"]]
                    :plugins      [[lein-midje "3.1.3"]]}}
-  :dependencies [[org.clojure/clojure "1.7.0"]])
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/data.priority-map "0.0.7"]])
