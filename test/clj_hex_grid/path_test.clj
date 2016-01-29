@@ -1,6 +1,6 @@
 (ns clj-hex-grid.path-test
-  (:require [clj-hex-grid.path :as path])
-  (:require [clj-hex-grid.neighbours :as n])
+  (:require [clj-hex-grid.path :as path]
+            [clj-hex-grid.neighbours :as n])
   (:use [midje.sweet]))
 
 (def cube-origin {:x 0 :y 0 :z 0})
