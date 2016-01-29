@@ -21,7 +21,7 @@ A Clojure library implementing the algorithms specified in http://www.redblobgam
 1. Rounding - To do
 1. Map storage - To do
 1. Wraparound maps - To do
-1. Pathfinding - To do
+1. Pathfinding - Done (cube coordinates)
 
 ## License
 
