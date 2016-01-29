@@ -40,13 +40,13 @@
    else:
        rz = -rx-ry
    return Cube(rx, ry, rz)"
-  [{float_x :x float_y :y float_z :z}]
-  (let [rounded_x (Math/round float_x)
-        diff_x (Math/abs (- rounded_x float_x))
-        rounded_y (Math/round float_y)
-        diff_y (Math/abs (- rounded_y float_y))
-        rounded_z (Math/round float_z)
-        diff_z (Math/abs (- rounded_z float_z))]
+  [{^float x :x ^float y :y ^float z :z}]
+  (let [rounded_x (Math/round x)
+        diff_x (Math/abs (- rounded_x x))
+        rounded_y (Math/round y)
+        diff_y (Math/abs (- rounded_y y))
+        rounded_z (Math/round z)
+        diff_z (Math/abs (- rounded_z z))]
     (reset_coordinate_with_largest_diff_to_round
       diff_x diff_y diff_z
       rounded_x rounded_y rounded_z)))

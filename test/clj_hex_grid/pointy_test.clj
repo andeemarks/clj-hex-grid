@@ -23,18 +23,18 @@
                     (pointy/hex-corner {:center {:x 1 :y 1} :corner 1})
                     =not=> (pointy/hex-corner {:center {:x 1 :y 1} :size 2 :corner 1}))
               (fact "corner must be specified"
-                    (pointy/hex-corner {:center {:x 1 :y 1}}) => (throws Exception))
+                    (pointy/hex-corner {:center {:x 1 :y 1}}) => (throws AssertionError))
               (fact "corner must be in valid range"
-                    (pointy/hex-corner {:center {:x 1 :y 1} :corner -1}) => (throws Exception)
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner -1}) => (throws AssertionError)
                     (pointy/hex-corner {:center {:x 1 :y 1} :corner 0}) => truthy
                     (pointy/hex-corner {:center {:x 1 :y 1} :corner 1}) => truthy
                     (pointy/hex-corner {:center {:x 1 :y 1} :corner 2}) => truthy
                     (pointy/hex-corner {:center {:x 1 :y 1} :corner 3}) => truthy
                     (pointy/hex-corner {:center {:x 1 :y 1} :corner 4}) => truthy
                     (pointy/hex-corner {:center {:x 1 :y 1} :corner 5}) => truthy
-                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 6}) => (throws Exception))
+                    (pointy/hex-corner {:center {:x 1 :y 1} :corner 6}) => (throws AssertionError))
               (fact "center must be specified"
-                    (pointy/hex-corner {:corner 1}) => (throws Exception))
+                    (pointy/hex-corner {:corner 1}) => (throws AssertionError))
               (fact "coordinates contain x and y"
                     (get (pointy/hex-corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2 1)
                     (get (pointy/hex-corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2 1)))

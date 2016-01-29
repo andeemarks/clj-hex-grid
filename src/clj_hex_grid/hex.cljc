@@ -8,10 +8,9 @@
 
 (defn calc-hex-corner
   [center corner size offset]
-  (if (or (nil? center) (nil? corner))
-    (throw Exception))
-  (if (or (< corner 0) (> corner 5))
-    (throw Exception))
+  {:pre [(some? center)
+         (some? corner)
+         (<= 0 corner 5)]}
   (let [angle_deg (+ offset (* corner 60))
         angle_rad (* (/ Math/PI 180) angle_deg)
         corner_x (calc-corner-x center size angle_rad)

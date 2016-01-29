@@ -22,18 +22,18 @@
                     (flat/hex-corner {:center {:x 1 :y 1} :corner 1}) => (flat/hex-corner {:center {:x 1 :y 1} :size 1 :corner 1})
                     (flat/hex-corner {:center {:x 1 :y 1} :corner 1}) =not=> (flat/hex-corner {:center {:x 1 :y 1} :size 2 :corner 1}))
               (fact "corner must be specified"
-                    (flat/hex-corner {:center {:x 1 :y 1}}) => (throws Exception))
+                    (flat/hex-corner {:center {:x 1 :y 1}}) => (throws AssertionError))
               (fact "corner must be in valid range"
-                    (flat/hex-corner {:center {:x 1 :y 1} :corner -1}) => (throws Exception)
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner -1}) => (throws AssertionError)
                     (flat/hex-corner {:center {:x 1 :y 1} :corner 0}) => truthy
                     (flat/hex-corner {:center {:x 1 :y 1} :corner 1}) => truthy
                     (flat/hex-corner {:center {:x 1 :y 1} :corner 2}) => truthy
                     (flat/hex-corner {:center {:x 1 :y 1} :corner 3}) => truthy
                     (flat/hex-corner {:center {:x 1 :y 1} :corner 4}) => truthy
                     (flat/hex-corner {:center {:x 1 :y 1} :corner 5}) => truthy
-                    (flat/hex-corner {:center {:x 1 :y 1} :corner 6}) => (throws Exception))
+                    (flat/hex-corner {:center {:x 1 :y 1} :corner 6}) => (throws AssertionError))
               (fact "center must be specified"
-                    (flat/hex-corner {:corner 1}) => (throws Exception))
+                    (flat/hex-corner {:corner 1}) => (throws AssertionError))
               (fact "coordinates contain x and y"
                     (get (flat/hex-corner {:center {:x 1 :y 1} :corner 1}) :x) => (roughly 2 1)
                     (get (flat/hex-corner {:center {:x 1 :y 1} :corner 1}) :y) => (roughly 2 1)))

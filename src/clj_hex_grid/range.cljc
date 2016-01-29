@@ -9,14 +9,13 @@
     (n/offset_cube_coordinates_from_origin origin {:x dx :y dy :z dz})))
 
 (defn- range_over_y
-  [dx distance]
+  [^long dx ^long distance]
   (range
     (Math/max (- distance) (- (- dx) distance))
     (+ 1 (Math/min distance (+ (- dx) distance)))))
 
 (defn- map_over_x
   [dx origin distance]
-  ; (pp/pprint (str "dx " dx))
   (map #(map_over_y dx %1 origin)
        (range_over_y dx distance)))
 
