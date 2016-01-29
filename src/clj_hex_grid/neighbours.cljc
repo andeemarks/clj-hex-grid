@@ -6,12 +6,12 @@
 (def ^{:private true} flat_neighbour_orientations [:north :south :northeast :northwest :southeast :southwest])
 (def ^{:private true} pointy_neighbour_orientations [:west :east :northeast :northwest :southeast :southwest])
 
-(def ^{:private true} cube_neighbours {:north     {:x 0 :y 1 :z -1}
-                                       :south     {:x 0 :y -1 :z 1}
-                                       :northeast {:x 1 :y 0 :z -1}
-                                       :northwest {:x -1 :y 1 :z 0}
-                                       :southeast {:x 1 :y -1 :z 0}
-                                       :southwest {:x -1 :y 0 :z 1}})
+(def ^{:private true} cube-neighbour-orientations {:north     {:x 0 :y 1 :z -1}
+                                                   :south     {:x 0 :y -1 :z 1}
+                                                   :northeast {:x 1 :y 0 :z -1}
+                                                   :northwest {:x -1 :y 1 :z 0}
+                                                   :southeast {:x 1 :y -1 :z 0}
+                                                   :southwest {:x -1 :y 0 :z 1}})
 
 (def ^{:private true} odd_q_neighbours {even_column {:north     {:x 0 :y -1}
                                                      :south     {:x 0 :y 1}
@@ -75,7 +75,7 @@
 (defn cube-neighbour
   ""
   [origin orientation]
-  (let [offsets (get cube_neighbours orientation)]
+  (let [offsets (get cube-neighbour-orientations orientation)]
     (offset_cube_coordinates_from_origin origin offsets)))
 
 (defn cube-neighbours
@@ -139,3 +139,25 @@
 
 (defn cube-neighbour? [node neighbour]
   (some #{neighbour} (cube-neighbours node)))
+
+(def ^{:private true} cube-ring-directions {:north     :southwest
+                                            :northwest :south
+                                            :southwest :southeast
+                                            :south     :northeast
+                                            :southeast :north
+                                            :northeast :northwest})
+
+(defn cube-n-neighbours
+  "Line of n hexes in orientation, including origin"
+  [origin distance orientation]
+  (take distance (iterate #(cube-neighbour % orientation) origin)))
+
+(defn cube-ring
+  "Seq of hexes at `radius` distance from center."
+  [origin radius]
+  (flatten
+    (map
+      (fn [[offset-orientation neighbours-orientation]]
+        (let [start (last (cube-n-neighbours origin (+ radius 1) offset-orientation))]
+          (cube-n-neighbours start radius neighbours-orientation)))
+      cube-ring-directions)))
